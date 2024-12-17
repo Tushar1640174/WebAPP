@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Failed</title>
+    <style type="text/css">
+    /* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body Styling */
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://wallpapercave.com/wp/wp2488314.jpg') no-repeat center center/cover; /* Football-themed background image */
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Overlay for Better Readability */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Message Box */
+.message-box {
+    background: rgba(0, 0, 0, 0.8); /* Slightly darker background */
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Heading Styling */
+.message-box h1 {
+    font-size: 2.5rem;
+    color: #f44336; /* Red for warning */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Paragraph Styling */
+.message-box p {
+    font-size: 1.2rem;
+    color: #ddd;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Home Link Styling */
+.message-box .home-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background: #f44336;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.message-box .home-link:hover {
+    background: #ff6347; /* Lighter red on hover */
+    transform: scale(1.05);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Message Section -->
+        <div class="message-box">
+            <h1>Registration Failed</h1>
+            <p>Your registration is <strong>not completed</strong> as your email is already registered with us.</p>
+            <a href="Index.html" class="home-link">Return to Main Page</a>
+        </div>
+    </div>
+</body>
+</html>

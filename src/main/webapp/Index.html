@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In & Sign Up | UEFA Champions League</title>
+  <style>
+  /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Background */
+.background {
+  position: relative;
+  background: url('https://wallpaperaccess.com/full/249480.jpg') no-repeat center center/cover;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Dark transparent overlay */
+}
+
+/* Form Container */
+.form-container {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  border-radius: 8px;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  border-bottom: 2px solid #ffffff;
+}
+
+.form h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #005bac;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #003f7d;
+}
+
+.switch-text {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.switch-text a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.switch-text a:hover {
+  text-decoration: underline;
+}
+
+/* Form Switching */
+.form {
+  display: none;
+}
+
+.form.active-form {
+  display: block;
+}
+  
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background">
+    <div class="overlay"></div>
+    <div class="form-container">
+      <!-- Navigation Tabs -->
+      <div class="tabs">
+        <button id="signInTab" class="active" onclick="showForm('signin')">Sign In</button>
+        <button id="signUpTab" onclick="showForm('signup')">Sign Up</button>
+      </div>
+
+      <!-- Sign In Form -->
+      <form id="signin" method="post"  action="./SignInServlet" class="form active-form">
+        <h2>Welcome Back!</h2>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit">Sign In</button>
+        <p class="switch-text">Don't have an account? <a href="#" onclick="showForm('signup')">Sign Up</a></p>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="signup" method="post" action="./SignUpServlet" class="form">
+        <h2>Create Account</h2>
+        <div class="input-group">
+          <label for="name">Name</label>
+          <input type="text" name="uname" placeholder="Enter your name" required>
+        </div>
+        <div class="input-group">
+          <label for="email-signup">Email</label>
+          <input type="email" name="uemail" placeholder="Enter your email" required>
+        </div>
+        <div class="input-group">
+          <label for="password-signup">Password</label>
+          <input type="password" name="upassword" placeholder="Enter your password" required>
+        </div>
+        <button type="submit">Sign Up</button>
+        <p class="switch-text">Already have an account? <a href="#" onclick="showForm('signin')">Sign In</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to switch between Sign In and Sign Up
+    function showForm(formName) {
+      document.getElementById('signin').classList.remove('active-form');
+      document.getElementById('signup').classList.remove('active-form');
+      document.getElementById('signInTab').classList.remove('active');
+      document.getElementById('signUpTab').classList.remove('active');
+
+      if (formName === 'signin') {
+        document.getElementById('signin').classList.add('active-form');
+        document.getElementById('signInTab').classList.add('active');
+      } else {
+        document.getElementById('signup').classList.add('active-form');
+        document.getElementById('signUpTab').classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
