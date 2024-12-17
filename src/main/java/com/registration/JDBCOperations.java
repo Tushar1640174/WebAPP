@@ -38,7 +38,7 @@ public class JDBCOperations {
 		int i=ps.executeUpdate();
 		if(i==1)
 		{
-			System.out.println("User is registered successfully");
+			System.out.println("User is registered successfully");//all went well
 			return true;
 		}
 		else
