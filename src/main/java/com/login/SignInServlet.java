@@ -9,9 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.baseclass.User;
-
+import com.baseclass.*;
 
 @WebServlet("/SignInServlet")
 public class SignInServlet extends HttpServlet {
@@ -46,12 +44,12 @@ public class SignInServlet extends HttpServlet {
 			}
 			else
 			{
-				
+				response.sendRedirect("/JDBC_Servlep_RegistrationAPP/Index.html");
 			}
 			
 			
 		} catch (SQLException e) {
-			System.out.println("Something went wrong while creating the connection....");
+			System.out.println("Something went wrong while creating the connection.......");
 			
 		}
 		
